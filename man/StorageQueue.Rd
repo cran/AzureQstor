@@ -65,28 +65,28 @@ AzureRMR::delete_pool()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{StorageQueue$new()}}
-\item \href{#method-create}{\code{StorageQueue$create()}}
-\item \href{#method-delete}{\code{StorageQueue$delete()}}
-\item \href{#method-clear}{\code{StorageQueue$clear()}}
-\item \href{#method-get_metadata}{\code{StorageQueue$get_metadata()}}
-\item \href{#method-set_metadata}{\code{StorageQueue$set_metadata()}}
-\item \href{#method-get_message}{\code{StorageQueue$get_message()}}
-\item \href{#method-get_messages}{\code{StorageQueue$get_messages()}}
-\item \href{#method-peek_message}{\code{StorageQueue$peek_message()}}
-\item \href{#method-peek_messages}{\code{StorageQueue$peek_messages()}}
-\item \href{#method-pop_message}{\code{StorageQueue$pop_message()}}
-\item \href{#method-pop_messages}{\code{StorageQueue$pop_messages()}}
-\item \href{#method-put_message}{\code{StorageQueue$put_message()}}
-\item \href{#method-update_message}{\code{StorageQueue$update_message()}}
-\item \href{#method-delete_message}{\code{StorageQueue$delete_message()}}
-\item \href{#method-print}{\code{StorageQueue$print()}}
-\item \href{#method-clone}{\code{StorageQueue$clone()}}
+\item \href{#method-StorageQueue-new}{\code{StorageQueue$new()}}
+\item \href{#method-StorageQueue-create}{\code{StorageQueue$create()}}
+\item \href{#method-StorageQueue-delete}{\code{StorageQueue$delete()}}
+\item \href{#method-StorageQueue-clear}{\code{StorageQueue$clear()}}
+\item \href{#method-StorageQueue-get_metadata}{\code{StorageQueue$get_metadata()}}
+\item \href{#method-StorageQueue-set_metadata}{\code{StorageQueue$set_metadata()}}
+\item \href{#method-StorageQueue-get_message}{\code{StorageQueue$get_message()}}
+\item \href{#method-StorageQueue-get_messages}{\code{StorageQueue$get_messages()}}
+\item \href{#method-StorageQueue-peek_message}{\code{StorageQueue$peek_message()}}
+\item \href{#method-StorageQueue-peek_messages}{\code{StorageQueue$peek_messages()}}
+\item \href{#method-StorageQueue-pop_message}{\code{StorageQueue$pop_message()}}
+\item \href{#method-StorageQueue-pop_messages}{\code{StorageQueue$pop_messages()}}
+\item \href{#method-StorageQueue-put_message}{\code{StorageQueue$put_message()}}
+\item \href{#method-StorageQueue-update_message}{\code{StorageQueue$update_message()}}
+\item \href{#method-StorageQueue-delete_message}{\code{StorageQueue$delete_message()}}
+\item \href{#method-StorageQueue-print}{\code{StorageQueue$print()}}
+\item \href{#method-StorageQueue-clone}{\code{StorageQueue$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-StorageQueue-new"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-new}{}}}
 \subsection{Method \code{new()}}{
 Initialize the queue object. Rather than calling this directly, you should use one of the \code{\link{storage_queue}}, \code{\link{list_storage_queues}} or \code{\link{create_storage_queue}} functions.
 
@@ -106,8 +106,8 @@ Note that initializing this object is a local operation only. If a queue of the 
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-create"></a>}}
-\if{latex}{\out{\hypertarget{method-create}{}}}
+\if{html}{\out{<a id="method-StorageQueue-create"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-create}{}}}
 \subsection{Method \code{create()}}{
 Creates a storage queue in Azure, using the storage endpoint and name from this R6 object.
 \subsection{Usage}{
@@ -119,8 +119,8 @@ The queue object, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-delete}{}}}
+\if{html}{\out{<a id="method-StorageQueue-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-delete}{}}}
 \subsection{Method \code{delete()}}{
 Deletes this storage queue in Azure.
 \subsection{Usage}{
@@ -139,8 +139,8 @@ The queue object, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clear"></a>}}
-\if{latex}{\out{\hypertarget{method-clear}{}}}
+\if{html}{\out{<a id="method-StorageQueue-clear"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-clear}{}}}
 \subsection{Method \code{clear()}}{
 Clears (deletes) all messages in this storage queue.
 \subsection{Usage}{
@@ -152,8 +152,8 @@ The queue object, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_metadata"></a>}}
-\if{latex}{\out{\hypertarget{method-get_metadata}{}}}
+\if{html}{\out{<a id="method-StorageQueue-get_metadata"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-get_metadata}{}}}
 \subsection{Method \code{get_metadata()}}{
 Retrieves user-defined metadata for the queue.
 \subsection{Usage}{
@@ -165,8 +165,8 @@ A named list of metadata properties.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_metadata"></a>}}
-\if{latex}{\out{\hypertarget{method-set_metadata}{}}}
+\if{html}{\out{<a id="method-StorageQueue-set_metadata"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-set_metadata}{}}}
 \subsection{Method \code{set_metadata()}}{
 Sets user-defined metadata for the queue.
 \subsection{Usage}{
@@ -187,8 +187,8 @@ A named list of metadata properties, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_message"></a>}}
-\if{latex}{\out{\hypertarget{method-get_message}{}}}
+\if{html}{\out{<a id="method-StorageQueue-get_message"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-get_message}{}}}
 \subsection{Method \code{get_message()}}{
 Reads a message from the front of the storage queue.
 
@@ -202,8 +202,8 @@ A new object of class \code{\link{QueueMessage}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_messages"></a>}}
-\if{latex}{\out{\hypertarget{method-get_messages}{}}}
+\if{html}{\out{<a id="method-StorageQueue-get_messages"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-get_messages}{}}}
 \subsection{Method \code{get_messages()}}{
 Reads several messages at once from the front of the storage queue.
 
@@ -224,8 +224,8 @@ A list of objects of class \code{\link{QueueMessage}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-peek_message"></a>}}
-\if{latex}{\out{\hypertarget{method-peek_message}{}}}
+\if{html}{\out{<a id="method-StorageQueue-peek_message"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-peek_message}{}}}
 \subsection{Method \code{peek_message()}}{
 Reads a message from the storage queue, but does not alter its visibility.
 
@@ -239,8 +239,8 @@ A new object of class \code{\link{QueueMessage}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-peek_messages"></a>}}
-\if{latex}{\out{\hypertarget{method-peek_messages}{}}}
+\if{html}{\out{<a id="method-StorageQueue-peek_messages"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-peek_messages}{}}}
 \subsection{Method \code{peek_messages()}}{
 Reads several messages at once from the storage queue, without altering their visibility.
 
@@ -261,8 +261,8 @@ A list of objects of class \code{\link{QueueMessage}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-pop_message"></a>}}
-\if{latex}{\out{\hypertarget{method-pop_message}{}}}
+\if{html}{\out{<a id="method-StorageQueue-pop_message"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-pop_message}{}}}
 \subsection{Method \code{pop_message()}}{
 Reads a message from the storage queue, removing it at the same time. This is equivalent to calling \href{#method-get_message}{\code{get_message}} and \href{#method-delete_message}{\code{delete_message}} successively.
 \subsection{Usage}{
@@ -274,8 +274,8 @@ A new object of class \code{\link{QueueMessage}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-pop_messages"></a>}}
-\if{latex}{\out{\hypertarget{method-pop_messages}{}}}
+\if{html}{\out{<a id="method-StorageQueue-pop_messages"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-pop_messages}{}}}
 \subsection{Method \code{pop_messages()}}{
 Reads several messages at once from the storage queue, and then removes them.
 \subsection{Usage}{
@@ -294,8 +294,8 @@ A list of objects of class \code{\link{QueueMessage}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-put_message"></a>}}
-\if{latex}{\out{\hypertarget{method-put_message}{}}}
+\if{html}{\out{<a id="method-StorageQueue-put_message"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-put_message}{}}}
 \subsection{Method \code{put_message()}}{
 Writes a message to the back of the message queue.
 \subsection{Usage}{
@@ -318,8 +318,8 @@ The message text, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update_message"></a>}}
-\if{latex}{\out{\hypertarget{method-update_message}{}}}
+\if{html}{\out{<a id="method-StorageQueue-update_message"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-update_message}{}}}
 \subsection{Method \code{update_message()}}{
 Updates a message in the queue. This requires that the message object must include a pop receipt, which is present if it was obtained by means other than \href{#method-peek_message}{peeking}.
 
@@ -344,8 +344,8 @@ The message object, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete_message"></a>}}
-\if{latex}{\out{\hypertarget{method-delete_message}{}}}
+\if{html}{\out{<a id="method-StorageQueue-delete_message"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-delete_message}{}}}
 \subsection{Method \code{delete_message()}}{
 Deletes a message from the queue. This requires that the message object must include a pop receipt, which is present if it was obtained by means other than \href{#method-peek_message}{peeking}.
 \subsection{Usage}{
@@ -361,8 +361,8 @@ Deletes a message from the queue. This requires that the message object must inc
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-StorageQueue-print"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-print}{}}}
 \subsection{Method \code{print()}}{
 Print method for this class.
 \subsection{Usage}{
@@ -378,8 +378,8 @@ Print method for this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-StorageQueue-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-StorageQueue-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -45,16 +45,16 @@ msg$delete()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{QueueMessage$new()}}
-\item \href{#method-delete}{\code{QueueMessage$delete()}}
-\item \href{#method-update}{\code{QueueMessage$update()}}
-\item \href{#method-print}{\code{QueueMessage$print()}}
-\item \href{#method-clone}{\code{QueueMessage$clone()}}
+\item \href{#method-QueueMessage-new}{\code{QueueMessage$new()}}
+\item \href{#method-QueueMessage-delete}{\code{QueueMessage$delete()}}
+\item \href{#method-QueueMessage-update}{\code{QueueMessage$update()}}
+\item \href{#method-QueueMessage-print}{\code{QueueMessage$print()}}
+\item \href{#method-QueueMessage-clone}{\code{QueueMessage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-QueueMessage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-QueueMessage-new}{}}}
 \subsection{Method \code{new()}}{
 Creates a new message object. Rather than calling the \code{new} method manually, objects of this class should be created via the methods exposed by the \code{\link{StorageQueue}} object.
 \subsection{Usage}{
@@ -72,8 +72,8 @@ Creates a new message object. Rather than calling the \code{new} method manually
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delete"></a>}}
-\if{latex}{\out{\hypertarget{method-delete}{}}}
+\if{html}{\out{<a id="method-QueueMessage-delete"></a>}}
+\if{latex}{\out{\hypertarget{method-QueueMessage-delete}{}}}
 \subsection{Method \code{delete()}}{
 Deletes this message from the queue.
 \subsection{Usage}{
@@ -85,8 +85,8 @@ NULL, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update"></a>}}
-\if{latex}{\out{\hypertarget{method-update}{}}}
+\if{html}{\out{<a id="method-QueueMessage-update"></a>}}
+\if{latex}{\out{\hypertarget{method-QueueMessage-update}{}}}
 \subsection{Method \code{update()}}{
 Updates this message in the queue.
 
@@ -109,8 +109,8 @@ The message object, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-QueueMessage-print"></a>}}
+\if{latex}{\out{\hypertarget{method-QueueMessage-print}{}}}
 \subsection{Method \code{print()}}{
 Print method for this class.
 \subsection{Usage}{
@@ -129,8 +129,8 @@ The message object, invisibly.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-QueueMessage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-QueueMessage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

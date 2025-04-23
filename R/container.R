@@ -2,7 +2,7 @@
 #'
 #' Get, list, create, or delete queues.
 #'
-#' @param endpoint Either a queue endpoint object as created by [storage_endpoint], or a character string giving the URL of the endpoint.
+#' @param endpoint Either a queue endpoint object as created by [AzureStor::storage_endpoint], or a character string giving the URL of the endpoint.
 #' @param key,token,sas If an endpoint object is not supplied, authentication credentials: either an access key, an Azure Active Directory (AAD) token, or a SAS, in that order of priority.
 #' @param api_version If an endpoint object is not supplied, the storage API version to use when interacting with the host. Currently defaults to `"2019-07-07"`.
 #' @param name The name of the queue to get, create, or delete.

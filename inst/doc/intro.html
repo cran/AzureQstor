@@ -15,74 +15,103 @@
 
 <title>Introduction to AzureQstor</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -91,13 +120,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -105,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
+
 
 
 
@@ -307,68 +344,99 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="azure-queue-storage" class="section level2">
 <h2>Azure queue storage</h2>
-<p><a href="https://azure.microsoft.com/en-us/services/storage/queues/">Azure queue storage</a> is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. Queue storage is often used to create a backlog of work to process asynchronously.</p>
-<p>AzureQstor is an R interface to queue storage, building on the functionality provided by the <a href="https://github.com/Azure/AzureStor">AzureStor</a> package. You can easily create and delete queues, and read and write messages to queues.</p>
+<p><a href="https://azure.microsoft.com/en-us/products/storage/queues/">Azure
+queue storage</a> is a service for storing large numbers of messages
+that can be accessed from anywhere in the world via authenticated calls
+using HTTP or HTTPS. A single queue message can be up to 64 KB in size,
+and a queue can contain millions of messages, up to the total capacity
+limit of a storage account. Queue storage is often used to create a
+backlog of work to process asynchronously.</p>
+<p>AzureQstor is an R interface to queue storage, building on the
+functionality provided by the <a href="https://github.com/Azure/AzureStor">AzureStor</a> package. You can
+easily create and delete queues, and read and write messages to
+queues.</p>
 </div>
 <div id="queue-endpoint" class="section level2">
 <h2>Queue endpoint</h2>
-<p>AzureQstor uses a combination of S3 and R6 classes. The queue endpoint is an S3 object for compatibility with AzureStor. It has methods for creating, retrieving and deleting queues that mirror those in AzureStor for ADLS2, blob and file storage.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(AzureQstor)</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>endp &lt;-<span class="st"> </span><span class="kw">storage_endpoint</span>(<span class="st">&quot;https://mystorage.queue.core.windows.net&quot;</span>, <span class="dt">key=</span><span class="st">&quot;access_key&quot;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># creating, retrieving and deleting queues</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>qu &lt;-<span class="st"> </span><span class="kw">create_storage_queue</span>(endp, <span class="st">&quot;myqueue&quot;</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a>qu2 &lt;-<span class="st"> </span><span class="kw">storage_queue</span>(endp, <span class="st">&quot;myotherqueue&quot;</span>)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">delete_storage_queue</span>(qu2, <span class="dt">confirm=</span><span class="ot">FALSE</span>)</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># list all storage queues in this account</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">list_storage_queues</span>(endp)</span></code></pre></div>
+<p>AzureQstor uses a combination of S3 and R6 classes. The queue
+endpoint is an S3 object for compatibility with AzureStor. It has
+methods for creating, retrieving and deleting queues that mirror those
+in AzureStor for ADLS2, blob and file storage.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(AzureQstor)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>endp <span class="ot">&lt;-</span> <span class="fu">storage_endpoint</span>(<span class="st">&quot;https://mystorage.queue.core.windows.net&quot;</span>, <span class="at">key=</span><span class="st">&quot;access_key&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># creating, retrieving and deleting queues</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>qu <span class="ot">&lt;-</span> <span class="fu">create_storage_queue</span>(endp, <span class="st">&quot;myqueue&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>qu2 <span class="ot">&lt;-</span> <span class="fu">storage_queue</span>(endp, <span class="st">&quot;myotherqueue&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="fu">delete_storage_queue</span>(qu2, <span class="at">confirm=</span><span class="cn">FALSE</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co"># list all storage queues in this account</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="fu">list_storage_queues</span>(endp)</span></code></pre></div>
 </div>
 <div id="queues-and-messages" class="section level2">
 <h2>Queues and messages</h2>
-<p>Queues and messages are represented using R6 classes. The <code>list_storage_queues</code>, <code>storage_queue</code> and <code>create_storage_queue</code> calls above return objects of class <code>StorageQueue</code>, which has methods for reading, writing, updating and deleting messages.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>qu &lt;-<span class="st"> </span><span class="kw">storage_queue</span>(endp, <span class="st">&quot;myqueue&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># write a message to the back of the queue</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>qu<span class="op">$</span><span class="kw">put</span>(<span class="st">&quot;New message&quot;</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># read a message from the front of the queue</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>msg &lt;-<span class="st"> </span>qu<span class="op">$</span><span class="kw">get_message</span>()</span></code></pre></div>
-<p>Once we have read a message, we have a time window (by default 30 seconds) in which to process it. During this window, the message still exists in the queue, but is invisible: further requests for messages will skip over it. If we need more time to process a message, we can update it on the queue to extend the invisibility window.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>qu<span class="op">$</span><span class="kw">update_message</span>(msg, <span class="dt">visibility_timeout=</span><span class="dv">60</span>)</span></code></pre></div>
+<p>Queues and messages are represented using R6 classes. The
+<code>list_storage_queues</code>, <code>storage_queue</code> and
+<code>create_storage_queue</code> calls above return objects of class
+<code>StorageQueue</code>, which has methods for reading, writing,
+updating and deleting messages.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>qu <span class="ot">&lt;-</span> <span class="fu">storage_queue</span>(endp, <span class="st">&quot;myqueue&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># write a message to the back of the queue</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">put</span>(<span class="st">&quot;New message&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># read a message from the front of the queue</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>msg <span class="ot">&lt;-</span> qu<span class="sc">$</span><span class="fu">get_message</span>()</span></code></pre></div>
+<p>Once we have read a message, we have a time window (by default 30
+seconds) in which to process it. During this window, the message still
+exists in the queue, but is invisible: further requests for messages
+will skip over it. If we need more time to process a message, we can
+update it on the queue to extend the invisibility window.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">update_message</span>(msg, <span class="at">visibility_timeout=</span><span class="dv">60</span>)</span></code></pre></div>
 <p>Once we are done with the message, we delete it from the queue:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>qu<span class="op">$</span><span class="kw">delete_message</span>(msg)</span></code></pre></div>
-<p>To retrieve a message from a queue without affecting its visibility, we can use the <code>peek_message</code> method. This can be useful if we only want to examine a message’s contents without any further processing.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>msg &lt;-<span class="st"> </span>qu<span class="op">$</span><span class="kw">peek_message</span>()</span></code></pre></div>
-<p>The <code>StorageQueue</code> class also provides methods to retrieve multiple messages at once, to a maximum of 32.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># read a batch of 30 messages; returns a list of message objects</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>qu<span class="op">$</span><span class="kw">read_messages</span>(<span class="dt">n=</span><span class="dv">30</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># peek at the next 30 messages</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>qu<span class="op">$</span><span class="kw">peek_messages</span>(<span class="dt">n=</span><span class="dv">30</span>)</span></code></pre></div>
-<p>Messages themselves are objects of class <code>QueueMessage</code>, which has methods for updates and deletes. In fact, the above <code>delete_message</code> and <code>update_message</code> queue methods simply call the corresponding method in the message object.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>msg &lt;-<span class="st"> </span>qu<span class="op">$</span><span class="kw">get_message</span>()</span>
-<span id="cb7-2"><a href="#cb7-2"></a>msg<span class="op">$</span><span class="kw">update</span>(<span class="dt">visibility_timeout=</span><span class="dv">60</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>msg<span class="op">$</span><span class="kw">delete</span>()</span></code></pre></div>
-<p>The content of a message is in its <code>text</code> field, which will (usually) be a text string.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>msg<span class="op">$</span>text</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">## [1] &quot;New message&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">delete_message</span>(msg)</span></code></pre></div>
+<p>To retrieve a message from a queue without affecting its visibility,
+we can use the <code>peek_message</code> method. This can be useful if
+we only want to examine a message’s contents without any further
+processing.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>msg <span class="ot">&lt;-</span> qu<span class="sc">$</span><span class="fu">peek_message</span>()</span></code></pre></div>
+<p>The <code>StorageQueue</code> class also provides methods to retrieve
+multiple messages at once, to a maximum of 32.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># read a batch of 30 messages; returns a list of message objects</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">read_messages</span>(<span class="at">n=</span><span class="dv">30</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># peek at the next 30 messages</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">peek_messages</span>(<span class="at">n=</span><span class="dv">30</span>)</span></code></pre></div>
+<p>Messages themselves are objects of class <code>QueueMessage</code>,
+which has methods for updates and deletes. In fact, the above
+<code>delete_message</code> and <code>update_message</code> queue
+methods simply call the corresponding method in the message object.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>msg <span class="ot">&lt;-</span> qu<span class="sc">$</span><span class="fu">get_message</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>msg<span class="sc">$</span><span class="fu">update</span>(<span class="at">visibility_timeout=</span><span class="dv">60</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>msg<span class="sc">$</span><span class="fu">delete</span>()</span></code></pre></div>
+<p>The content of a message is in its <code>text</code> field, which
+will (usually) be a text string.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>msg<span class="sc">$</span>text</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="do">## [1] &quot;New message&quot;</span></span></code></pre></div>
 </div>
 <div id="metadata" class="section level2">
 <h2>Metadata</h2>
-<p>You can get and set metadata for a queue object with the <code>get/set_metadata</code> R6 methods. If you prefer S3, you can also use the AzureStor <code>get/set_storage_metadata</code> S3 generics, which have methods for queue objects.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">set_storage_metadata</span>(qu, <span class="dt">name1=</span><span class="st">&quot;value1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;value2&quot;</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">get_storage_metadata</span>(qu)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">## $name1</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">## [1] &quot;value1&quot;</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">##</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">## $name2</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">## [1] &quot;value2&quot;</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co"># same as above</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a>qu<span class="op">$</span><span class="kw">set_metadata</span>(<span class="dt">name1=</span><span class="st">&quot;value1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;value2&quot;</span>)</span>
-<span id="cb9-11"><a href="#cb9-11"></a>qu<span class="op">$</span><span class="kw">get_metadata</span>()</span></code></pre></div>
+<p>You can get and set metadata for a queue object with the
+<code>get/set_metadata</code> R6 methods. If you prefer S3, you can also
+use the AzureStor <code>get/set_storage_metadata</code> S3 generics,
+which have methods for queue objects.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">set_storage_metadata</span>(qu, <span class="at">name1=</span><span class="st">&quot;value1&quot;</span>, <span class="at">name2=</span><span class="st">&quot;value2&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">get_storage_metadata</span>(qu)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="do">## $name1</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="do">## [1] &quot;value1&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="do">## $name2</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="do">## [1] &quot;value2&quot;</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co"># same as above</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">set_metadata</span>(<span class="at">name1=</span><span class="st">&quot;value1&quot;</span>, <span class="at">name2=</span><span class="st">&quot;value2&quot;</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>qu<span class="sc">$</span><span class="fu">get_metadata</span>()</span></code></pre></div>
 </div>
 
 

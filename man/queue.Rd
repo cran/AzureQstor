@@ -77,7 +77,7 @@ delete_storage_queue(endpoint, ...)
 \method{delete_storage_queue}{StorageQueue}(endpoint, confirm = TRUE, ...)
 }
 \arguments{
-\item{endpoint}{Either a queue endpoint object as created by \link{storage_endpoint}, or a character string giving the URL of the endpoint.}
+\item{endpoint}{Either a queue endpoint object as created by \link[AzureStor:storage_endpoint]{AzureStor::storage_endpoint}, or a character string giving the URL of the endpoint.}
 
 \item{...}{Further arguments passed to lower-level functions.}
 

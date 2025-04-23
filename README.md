@@ -4,7 +4,7 @@
 ![Downloads](https://cranlogs.r-pkg.org/badges/AzureQstor)
 ![R-CMD-check](https://github.com/Azure/AzureQstor/workflows/R-CMD-check/badge.svg)
 
-An R interface to [Azure queue storage](https://azure.microsoft.com/en-us/services/storage/queues/), building on the functionality provided by [AzureStor](https://github.com/Azure/AzureStor).
+An R interface to [Azure queue storage](https://azure.microsoft.com/en-us/products/storage/queues/), building on the functionality provided by [AzureStor](https://github.com/Azure/AzureStor).
 
 The primary repo for this package is at https://github.com/Azure/AzureQstor; please submit issues and PRs there. It is also mirrored at the Cloudyr org at https://github.com/cloudyr/AzureQstor. You can install the development version of the package with `devtools::install_github("Azure/AzureQstor")`.
 
